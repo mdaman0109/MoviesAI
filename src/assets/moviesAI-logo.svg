@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <!-- Movie camera body -->
+  <rect x="24" y="48" width="56" height="36" rx="8" fill="#6366f1"/>
+
+  <!-- Camera lenses -->
+  <circle cx="40" cy="36" r="10" fill="#6366f1"/>
+  <circle cx="64" cy="36" r="10" fill="#6366f1"/>
+
+  <!-- Play triangle -->
+  <polygon points="88,52 116,64 88,76" fill="#6366f1"/>
+
+  <!-- AI-style circuits on body -->
+  <line x1="32" y1="84" x2="32" y2="100" stroke="#6366f1" stroke-width="4"/>
+  <circle cx="32" cy="104" r="4" fill="#6366f1"/>
+
+  <line x1="48" y1="84" x2="48" y2="96" stroke="#6366f1" stroke-width="4"/>
+  <circle cx="48" cy="100" r="4" fill="#6366f1"/>
+
+  <line x1="64" y1="84" x2="64" y2="92" stroke="#6366f1" stroke-width="4"/>
+  <circle cx="64" cy="96" r="4" fill="#6366f1"/>
+</svg>
