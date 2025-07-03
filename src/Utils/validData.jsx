@@ -31,7 +31,7 @@ export const checkValidData = (email, password, name, isSignIn) => {
     );
   }
 
-  if (!isName && isSignIn) {
+  if (!isName && !isSignIn) {
     return (
       <span className="flex items-center text-red-500">
         {errorIcon}Please enter a valid name
