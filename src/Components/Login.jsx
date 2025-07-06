@@ -2,12 +2,13 @@ import { useState,useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../Utils/validData";
 import {createUserWithEmailAndPassword ,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
-import { useNavigate } from "react-router";
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { USERLOGO } from "../Utils/constants";
+import { BGPHOTO } from "../Utils/constants";
 const Login = ()=>
-{   const navigate = useNavigate()
+{   
     const dispatch=useDispatch()
     const[isSignInForm,setIsSignInForm]=useState(true);
     const[errorMessage, seterrorMessage]=useState(null);
@@ -37,11 +38,10 @@ const name = useRef(null)
             
 
             updateProfile(auth.currentUser, {
-            displayName: name.current.value, photoURL: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp"
+            displayName: name.current.value, photoURL: USERLOGO
             }).then(() => {
             const{uid,email,displayName,photoURL}=auth.currentUser;
             dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-            navigate("/browse")
             }).catch((error) => {
                 seterrorMessage(error.message)
             });
@@ -70,9 +70,6 @@ const name = useRef(null)
         .then((userCredential) => {
     // Signed in 
             const user = userCredential.user;
-             
-            navigate("/browse")
-            
             })
        .catch((error) => {
     const errorCode = error.code;
@@ -91,7 +88,7 @@ const name = useRef(null)
     }
 
     return(<div className="min-h-full">
-        <img className="absolute z-auto opacity-75 min-h-full" src="https://assets.nflxext.com/ffe/siteui/vlv3/75b0ed49-75ab-4a63-bd45-37bc2c95cb73/web/IN-en-20250623-TRIFECTA-perspective_ae5833b7-6ce5-4e88-853e-014f38c506f1_large.jpg" alt="background"></img>
+        <img className="absolute z-auto opacity-75 min-h-full" src={BGPHOTO} alt="background"></img>
         <Header/>
         <form onSubmit={(e)=>{e.preventDefault()}} className="absolute bg-black/80 mx-auto right-0 left-0 my-36 w-3/12 rounded-lg p-8  ">
             <h1 className="text-white font-bold text-4xl my-4 w-full  " >{!isSignInForm?"Sign Up":"Sign In"}</h1>
