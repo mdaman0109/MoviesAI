@@ -90,12 +90,12 @@ const name = useRef(null)
     return(<div className="min-h-full">
         <img className="absolute z-auto opacity-75 min-h-full" src={BGPHOTO} alt="background"></img>
         <Header/>
-        <form onSubmit={(e)=>{e.preventDefault()}} className="absolute bg-black/80 mx-auto right-0 left-0 my-36 w-3/12 rounded-lg p-8  ">
+        <form onSubmit={(e)=>{e.preventDefault()}} className="absolute bg-black/80 mx-auto right-0 left-0 my-52 w-3/12 rounded-lg p-8  ">
             <h1 className="text-white font-bold text-4xl my-4 w-full  " >{!isSignInForm?"Sign Up":"Sign In"}</h1>
-            {!isSignInForm && (<input ref={name}className="bg-white/10 text-white  placeholder-white/70 p-4 rounded-xl w-full my-2 border border-gray-500  focus:ring-2 focus:ring-red-500" type="text" placeholder="Enter Your Full Name"/>)}
-            <input ref={email}className="bg-white/10 text-white  placeholder-white/70 p-4 rounded-xl w-full my-2 border border-gray-500  focus:ring-2 focus:ring-red-500" type="text" placeholder="Email or mobile number"/>
+            {!isSignInForm && (<input ref={name}className="bg-white/10 text-white  placeholder-white/70 p-4 rounded-xl w-full my-4 border border-gray-500  focus:ring-2 focus:ring-red-500" type="text" placeholder="Enter Your Full Name"/>)}
+            <input ref={email}className="bg-white/10 text-white  placeholder-white/70 p-4 rounded-xl w-full my-4 border border-gray-500  focus:ring-2 focus:ring-red-500" type="text" placeholder="Email or mobile number"/>
 
-            <input ref={password} type="password"className="bg-white/10 text-white  placeholder-white/70 p-4 rounded-xl w-full my-2 border border-gray-500 focus:ring-2 focus:ring-red-500" placeholder={!isSignInForm?"Set Your Password":"Enter Your Password"}></input>
+            <input ref={password} type="password"className="bg-white/10 text-white  placeholder-white/70 p-4 rounded-xl w-full my-4 border border-gray-500 focus:ring-2 focus:ring-red-500" placeholder={!isSignInForm?"Set Your Password":"Enter Your Password"}></input>
             <p className="mt-2 text-sm text-red-500 font-semibold  px-4 py-2 rounded-lg shadow-sm animate-pulse">
                 {errorMessage}</p>
 

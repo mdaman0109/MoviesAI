@@ -42,17 +42,30 @@ useEffect(()=>{
 },[])
   return (
     <>
-    {logoutError && <LogoutError message={logoutError} />}
-    <div className="flex justify-between">
-      <div > <AppLogo/></div>
-      {user && (<div className="flex m-3"> <img className="w-12 h-12 m-4" src={user?.photoURL} alt="userIcon"/>
-      <button onClick={handleSignout} className="bg-red-700 text-white m-4 p-2 rounded-2xl font-bold shadow-2xl cursor-pointer z-20">Sign Out</button>
-      </div>  )}
+  {logoutError && <LogoutError message={logoutError} />}
+
+  <div className="absolute top-0 left-0 w-full z-10 bg-gradient-to-b from-black px-6 py-4">
+    <div className="flex items-center justify-between">
+      <AppLogo />
+
+      {user && (
+        <div className="flex items-center gap-4">
+          <img
+            className="w-10 h-10 rounded-md object-cover"
+            src={user?.photoURL}
+            alt="userIcon"
+          />
+          <button
+            onClick={handleSignout}
+            className="bg-red-600 hover:bg-red-700 hover:border-2 hover:border-white cursor-pointer text-white text-sm px-4 py-2 h-10 rounded-md font-semibold shadow-sm transition duration-200"
+          >
+            Sign Out
+          </button>
+        </div>
+      )}
     </div>
-     
-        
-        
-     </>
+  </div>
+</>
   );
 };
 
