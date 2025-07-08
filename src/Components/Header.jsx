@@ -44,7 +44,7 @@ useEffect(()=>{
     <>
   {logoutError && <LogoutError message={logoutError} />}
 
-  <div className="absolute top-0 left-0 w-full z-10  bg-gradient-to-b from-black ">
+  <div className="absolute z-50 top-0 left-0 w-[100vw]  bg-gradient-to-b from-black">
     <div className="flex items-center justify-between px-6 py-4">
       <AppLogo />
 

@@ -6,4 +6,25 @@ body
     background-color: rgb(61, 60, 60);
     margin: 0;
     padding: 0;
+    width: 100vw;
+}
+
+
+  html, body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+ 
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.scroll-container {
+  scrollbar-width: none;
+}
+
+
+.scroll-container {
+  -ms-overflow-style: none;
 }
