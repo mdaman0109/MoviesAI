@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import MovieList from "./movieList";
-import { useEffect } from "react";
+
 const SecondaryContainer =()=>
 {
  const movies =  useSelector((store)=>store.movies);
