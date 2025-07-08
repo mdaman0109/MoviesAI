@@ -44,8 +44,8 @@ useEffect(()=>{
     <>
   {logoutError && <LogoutError message={logoutError} />}
 
-  <div className="absolute top-0 left-0 w-full z-10 bg-gradient-to-b from-black px-6 py-4">
-    <div className="flex items-center justify-between">
+  <div className="absolute top-0 left-0 w-full z-10  bg-gradient-to-b from-black ">
+    <div className="flex items-center justify-between px-6 py-4">
       <AppLogo />
 
       {user && (
@@ -57,7 +57,7 @@ useEffect(()=>{
           />
           <button
             onClick={handleSignout}
-            className="bg-red-600 hover:bg-red-700 hover:border-2 hover:border-white cursor-pointer text-white text-sm px-4 py-2 h-10 rounded-md font-semibold shadow-sm transition duration-200"
+            className="bg-red-600 hover:bg-red-700 hover:border-2 hover:border-white cursor-pointer text-white text-sm px-4 py-2 h-10 rounded-md font-bold shadow-sm transition duration-200"
           >
             Sign Out
           </button>
