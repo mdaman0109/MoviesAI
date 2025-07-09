@@ -74,7 +74,7 @@ const Login = () => {
       <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute z-10 bg-black/80 mx-auto right-0 left-0 mt-72 sm:mt-60 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-lg p-6 sm:p-8 backdrop-blur"
+        className="absolute z-10 bg-black/80 mx-auto right-0 left-0 mt-86 sm:mt-60 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-lg p-6 sm:p-8 backdrop-blur"
       >
         <h1 className="text-white font-bold text-3xl sm:text-4xl my-4 w-full">
           {isSignInForm ? "Sign In" : "Sign Up"}
