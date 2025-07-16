@@ -1,4 +1,4 @@
-import MovieCard from "./MovieCard";
+import MovieCard from "./movieCard";
 
 const MovieList = ({ title, movies}) => {
   if (!movies.length || !movies[0]?.poster_path) return null;

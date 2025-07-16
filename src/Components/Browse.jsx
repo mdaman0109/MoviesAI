@@ -6,6 +6,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import useTopRatedMovies from "../Hooks/useTopRatedMovies";
 import useUpcomingMovies from "../Hooks/useUpcomingMovies";
+import NoMovies from "./NoMovies";
 import { useSelector } from "react-redux";
 const Browse = ()=>
 {
@@ -13,7 +14,8 @@ const Browse = ()=>
     usePopularMovies();
     useTopRatedMovies();
     useUpcomingMovies();
-
+    
+    const movies = useSelector((store) => store.movies?.nowPlayingMovies);
     const AISearchToggle = useSelector((store)=>store.ai.showGPTSearch)
 
     return(<div>
@@ -21,14 +23,16 @@ const Browse = ()=>
         
         <Header/>
 
-        {AISearchToggle
-        ?<AISearch/>
-        :<>
-        <MainContainer/>
-       <SecondaryContainer/>
-       </>
-       
-       }
+        {AISearchToggle ? (
+  <AISearch />
+) : movies ? (
+  <>
+    <MainContainer />
+    <SecondaryContainer />
+  </>
+) : (
+  <NoMovies/>
+)}
         
        
          

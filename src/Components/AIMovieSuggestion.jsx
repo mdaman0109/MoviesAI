@@ -8,6 +8,11 @@ const AIMovieSuggestion = () => {
   if (!movieNames || !movieResults || movieResults.length === 0) return null;
 
   return (
+
+
+
+
+   
     <div className="m-6 p-6 bg-black/60 backdrop-blur-sm rounded-4xl text-white shadow-xl w-full  overflow-hidden">
       <div className="overflow-y-scroll max-h-[80vh] scroll-smooth pr-3">
         <h1 className="text-2xl font-bold mb-4">
@@ -19,23 +24,21 @@ const AIMovieSuggestion = () => {
             <h2 className="text-xl font-semibold mb-4">{movieName}</h2>
 
             <div className="flex flex-wrap cursor-pointer gap-6 justify-start">
-              {movieResults[index]?.map((movie) => (
-                <div
-                  key={movie.id}
-                  className="w-[150px] flex flex-col items-center"
-                >
-                   <img
-                    className="w-full h-[225px] object-cover mb-2 rounded-2xl hover:scale-105 transition-transform duration-300 hover:border-2 hover:border-red-500"
-                    src={
-                      movie.poster_path
-                        ? IMG_CDN_URL + movie.poster_path
-                        : "https://via.placeholder.com/150x225?text=No+Image"
-                    }
-                    alt={movie.title}
-                  />
-                  <p className="text-center text-sm font-medium">{movie.title}</p>
-                </div>
-              ))}
+              {movieResults[index]
+  ?.filter((movie) => movie.poster_path)
+  .map((movie) => (
+    <div
+      key={movie.id}
+      className="w-[150px] flex flex-col items-center"
+    >
+      <img
+        className="w-full h-[225px] object-cover mb-2 rounded-2xl hover:scale-105 transition-transform duration-300 hover:border-2 hover:border-red-500"
+        src={IMG_CDN_URL + movie.poster_path}
+        alt={movie.title}
+      />
+      <p className="text-center text-sm font-medium">{movie.title}</p>
+    </div>
+))}
             </div>
           </div>
         ))}
