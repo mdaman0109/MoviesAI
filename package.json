@@ -13,6 +13,7 @@
     "@vitejs/plugin-react": "^4.1.0",
     "autoprefixer": "^10.4.21",
     "firebase": "^11.10.0",
+    "openai": "^5.9.1",
     "postcss": "^8.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

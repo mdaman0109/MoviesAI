@@ -1,7 +1,7 @@
 import { CDN_IMG_URL } from "../Utils/constants";
 const MovieCard = ({poster_path})=>
 {
-
+if (!poster_path || poster_path === "null") return null;
     
 return(
     <div className="w-56 px-4 py-4 ">
