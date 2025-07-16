@@ -9,6 +9,9 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
 
+    env:
+      VITE_OPENAI_KEY: ${{ secrets.VITE_OPENAI_KEY }}
+
     steps:
       - uses: actions/checkout@v4
 
