@@ -11,7 +11,7 @@ const MovieList = ({ title, movies}) => {
       <div className="flex px-8 ">
         {movies.map((movie)=>
         <Link to={"/movieinfo/" + movie?.id}>
-            <MovieCard key={movie.id} poster_path={movie.poster_path} />
+            <MovieCard key={movie?.id} poster_path={movie.poster_path} />
             </Link>
         )}
         </div>

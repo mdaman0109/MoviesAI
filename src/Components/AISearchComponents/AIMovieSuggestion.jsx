@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router";
 const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
 const AIMovieSuggestion = () => {
@@ -31,12 +31,14 @@ const AIMovieSuggestion = () => {
       key={movie.id}
       className="w-[150px] flex flex-col items-center"
     >
+      <Link to={"/movieinfo/" + movie.id}>
       <img
         className="w-full h-[225px] object-cover mb-2 rounded-2xl hover:scale-105 transition-transform duration-300 hover:border-2 hover:border-red-500"
         src={IMG_CDN_URL + movie.poster_path}
         alt={movie.title}
       />
       <p className="text-center text-sm font-medium">{movie.title}</p>
+    </Link>
     </div>
 ))}
             </div>

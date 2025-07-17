@@ -22,7 +22,10 @@ const AISearchBar = () => {
         API_OPTIONS
       );
       const json = await data.json();
+
       return json.results;
+      
+      
     } catch (err) {
       console.error("🔥 Error fetching movies:", err.message);
       alert("Network error. Please check your internet connection.");
@@ -49,6 +52,8 @@ const AISearchBar = () => {
       const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
       const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
       const tmdbResults = await Promise.all(promiseArray);
+  
+      
 
       dispatch(
         addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
