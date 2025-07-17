@@ -108,7 +108,7 @@ const handleAISearch=()=>
                   ✕
                 </span>
               </div>
-              <p className="text-sm">🔐 UID: {user?.uid}</p>
+              <p className="text-sm">🆔 {user?.uid}</p>
               <p className="text-sm">👤 {user?.displayName}</p>
               <p className="text-sm">📧 {user?.email}</p>
             </div>
