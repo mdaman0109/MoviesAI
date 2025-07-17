@@ -1,4 +1,4 @@
-import { BGPHOTO } from "../Utils/constants";
+import { BGPHOTO } from "../../Utils/constants";
 import AISearchBar from "./AISearchBar";
 import AIMovieSuggestion from "./AIMovieSuggestion";
 

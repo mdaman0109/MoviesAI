@@ -1,6 +1,6 @@
 import Login from "./Login";
 import Browse from "./Browse";
-
+import MovieInfo from "./MovieInfoComponents/MovieInfo";
 import {createBrowserRouter,RouterProvider } from "react-router";
 const Body =()=>
 {
@@ -13,7 +13,10 @@ const appRouter = createBrowserRouter([
     path:"/browse",
     element:<Browse/>
 },
-
+ {
+      path: "/movieinfo/:id",
+      element: <MovieInfo />,
+    },
 
 ]);
 

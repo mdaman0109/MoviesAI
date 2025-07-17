@@ -1,6 +1,6 @@
 import useNowPlayingMovies from "../Hooks/useNowPlayingMovies";
 import Header from "./Header";
-import AISearch from "./AISearch";
+import AISearch from "./AISearchComponents/AISearch";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../Hooks/usePopularMovies";
