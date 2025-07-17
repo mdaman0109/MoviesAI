@@ -50,11 +50,14 @@ const AISearchToggle = useSelector((store)=>store.ai.showGPTSearch)
 const handleAISearch=()=>
 {
  dispatch(toggleAISearch());
+ navigate("/browse"); 
 }
 
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
+
+
 
   return (
     <>
@@ -79,7 +82,7 @@ const handleAISearch=()=>
             onClick={handleAISearch}
             className="bg-purple-700 hover:bg-purple-800 hover:border-2 hover:scale-110 hover:border-white cursor-pointer text-white text-sm px-4 py-2 h-10 rounded-md font-bold shadow-sm transition duration-200"
           >
-            {!AISearchToggle?"AISearch":"Browse"}
+            {!AISearchToggle?"AISearch":"Home"}
             </button>
           <img
             className="w-10 h-10 rounded-md object-cover hover:scale-130"
