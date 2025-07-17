@@ -47,6 +47,7 @@ useEffect(()=>{
 },[])
 
 const AISearchToggle = useSelector((store)=>store.ai.showGPTSearch)
+
 const handleAISearch=()=>
 {
  dispatch(toggleAISearch());
@@ -56,6 +57,12 @@ const handleAISearch=()=>
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
+
+  const [isuserclicked,setisuserclicked]= useState(false)
+  const showuserdetails=()=>
+  {
+   setisuserclicked(!isuserclicked)
+  }
 
 
 
@@ -85,10 +92,28 @@ const handleAISearch=()=>
             {!AISearchToggle?"AISearch":"Home"}
             </button>
           <img
-            className="w-10 h-10 rounded-md object-cover hover:scale-130"
+            onClick={showuserdetails}
+            className="w-10 h-10 rounded-md cursor-pointer object-cover hover:scale-130"
             src={user?.photoURL}
             alt="userIcon"
           />
+                    {isuserclicked && (
+            <div className="absolute top-20 right-4 bg-black/90 backdrop-blur-md text-white p-4 rounded-xl shadow-lg z-50 w-72">
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-lg font-bold">User Details</h2>
+                <span
+                  onClick={() => setisuserclicked(false)}
+                  className="text-white text-xl font-bold cursor-pointer hover:text-red-500"
+                >
+                  ✕
+                </span>
+              </div>
+              <p className="text-sm">🔐 UID: {user?.uid}</p>
+              <p className="text-sm">👤 {user?.displayName}</p>
+              <p className="text-sm">📧 {user?.email}</p>
+            </div>
+          )}
+
          
           <button
             onClick={handleSignout}
