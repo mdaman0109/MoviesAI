@@ -34,9 +34,11 @@ useEffect(()=>{
   if (user) {
    const{uid,email,displayName,photoURL}=user;
    dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-    navigate("/browse")
+    if (window.location.pathname === "/") {
+          navigate("/browse");
+        }
   } else {
-    // User is signed out
+    
     dispatch(removeUser())
     navigate("/")
   }
