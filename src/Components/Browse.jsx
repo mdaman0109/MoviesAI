@@ -18,29 +18,21 @@ const Browse = ()=>
     const movies = useSelector((store) => store.movies?.nowPlayingMovies);
     const AISearchToggle = useSelector((store)=>store.ai.showGPTSearch)
 
-    return(<div>
-        
-        
-        <Header/>
-
-        {AISearchToggle ? (
-  <AISearch />
-) : movies ? (
-  <>
-    <MainContainer />
-    <SecondaryContainer />
-  </>
-) : (
-  <NoMovies/>
-)}
-        
-       
-         
-        
-       
-        
-    
-</div>)
+ return (
+  <div>
+    <Header />
+    {AISearchToggle ? (
+      <AISearch />
+    ) : movies ? (
+      <>
+        <MainContainer />
+        <SecondaryContainer />
+      </>
+    ) : (
+      <NoMovies />
+    )}
+  </div>
+);
 
 }
 

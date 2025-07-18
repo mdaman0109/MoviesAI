@@ -9,12 +9,12 @@ const MainContainer = () => {
 
   if (!mainMovie) return null;
 
-  return (
-    <div>
-      <VideoTitle title={mainMovie.title} overview={mainMovie.overview} movieId={mainMovie.id} />
-      <VideoBackground movieId={mainMovie.id} />
-    </div>
-  );
+return (
+  <div>
+    <VideoTitle title={mainMovie.title} overview={mainMovie.overview} movieId={mainMovie.id} />
+    <VideoBackground movieId={mainMovie.id} />
+  </div>
+);
 };
 
 export default MainContainer;

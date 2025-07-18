@@ -63,62 +63,84 @@ const Login = () => {
         });
     }
   };
-
-  return (
-    <div className="min-h-screen relative">
-      <img
-        className="absolute z-0 opacity-75 w-full h-full object-cover"
-        src={BGPHOTO}
-        alt="Background"
-      />
-      <Header />
+return (
+  <div className="min-h-screen relative">
+    <img
+      className="absolute inset-0 z-0 opacity-75 w-full h-full object-cover"
+      src={BGPHOTO}
+      alt="Background"
+    />
+    <Header />
+    
+    
+    <div className="absolute inset-0 z-10 flex items-center justify-center p-4">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute z-10 bg-black/80 mx-auto right-0 left-0 mt-86 sm:mt-60 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-lg p-6 sm:p-8 backdrop-blur"
+        className="w-full max-w-md bg-black/80 rounded-lg p-6 backdrop-blur-md border border-white/20 shadow-2xl"
       >
-        <h1 className="text-white font-bold text-3xl sm:text-4xl my-4 w-full">
+       
+        <h1 className="text-white font-bold text-3xl mb-6 text-center">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
+        
         {!isSignInForm && (
           <input
             ref={name}
-            className="bg-white/10 text-white placeholder-white/70 p-4 rounded-xl w-full my-4 border border-gray-500 focus:ring-2 focus:ring-red-500"
+            className="bg-white/10 text-white placeholder-white/70 
+                       p-4 rounded-xl w-full mb-4 border border-gray-500 
+                       focus:ring-2 focus:ring-red-500 focus:border-red-500
+                       text-base transition-all duration-300"
             type="text"
             placeholder="Enter your full name"
           />
         )}
 
+        
         <input
           ref={email}
-          className="bg-white/10 text-white placeholder-white/70 p-4 rounded-xl w-full my-4 border border-gray-500 focus:ring-2 focus:ring-red-500"
+          className="bg-white/10 text-white placeholder-white/70 
+                     p-4 rounded-xl w-full mb-4 border border-gray-500 
+                     focus:ring-2 focus:ring-red-500 focus:border-red-500
+                     text-base transition-all duration-300"
           type="text"
           placeholder="Email or mobile number"
         />
 
+        
         <input
           ref={password}
-          className="bg-white/10 text-white placeholder-white/70 p-4 rounded-xl w-full my-4 border border-gray-500 focus:ring-2 focus:ring-red-500"
+          className="bg-white/10 text-white placeholder-white/70 
+                     p-4 rounded-xl w-full mb-4 border border-gray-500 
+                     focus:ring-2 focus:ring-red-500 focus:border-red-500
+                     text-base transition-all duration-300"
           type="password"
           placeholder={isSignInForm ? "Enter your password" : "Set your password"}
         />
 
+        
         {errorMessage && (
-          <p className="mt-2 text-sm text-red-500 font-semibold px-4 py-2 rounded-lg shadow-sm animate-pulse">
+          <p className="mb-4 text-sm text-red-400 font-semibold px-4 py-2 rounded-lg 
+                        bg-red-900/30 border border-red-500/50 animate-pulse">
             {errorMessage}
           </p>
         )}
 
+      
         <button
           type="submit"
-          className="bg-red-700 w-full p-3 sm:p-4 cursor-pointer rounded-xl my-2 text-white font-bold hover:bg-red-600 transition duration-300"
+          className="bg-red-700 w-full p-4 cursor-pointer rounded-xl mb-4
+                     text-white font-bold text-base hover:bg-red-600 
+                     transition-all duration-300 shadow-lg"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
+        
         <h3
-          className="text-white font-bold my-2 w-full p-2 cursor-pointer hover:underline"
+          className="text-white font-bold w-full p-2 cursor-pointer text-base
+                     hover:underline hover:text-red-400 transition-all duration-300 text-center"
           onClick={toggleSignInForm}
         >
           {isSignInForm
@@ -127,7 +149,8 @@ const Login = () => {
         </h3>
       </form>
     </div>
-  );
+  </div>
+);
 };
 
 export default Login;

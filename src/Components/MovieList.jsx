@@ -5,10 +5,10 @@ const MovieList = ({ title, movies}) => {
 
   return (
     <div className="px-6">
-        <h1 className="relative text-3xl text-white px-13">{title}</h1>
+        <h1 className="relative text-2xl text-center md:text-left md:text-3xl text-white my-4 px-22 md:px-13">{title}</h1>
     <div className="flex scroll-container overflow-x-scroll  relative">
       
-      <div className="flex px-8 ">
+      <div className="flex flex-wrap md:flex-nowrap px-8 ">
         {movies.map((movie)=>
         <Link to={"/movieinfo/" + movie?.id}>
             <MovieCard key={movie?.id} poster_path={movie.poster_path} />
