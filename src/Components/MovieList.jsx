@@ -1,23 +1,19 @@
-import MovieCard from "./MovieCard"
-import { Link } from "react-router";
-const MovieList = ({ title, movies}) => {
-  if (!movies.length || !movies[0]?.poster_path) return null;
+import { useSelector } from "react-redux";
+import MovieList from "./MovieList";
+
+const SecondaryContainer = () => {
+  const movies = useSelector((store) => store.movies);
 
   return (
-    <div className="px-6">
-        <h1 className="relative text-2xl text-center md:text-left md:text-3xl text-white my-4 px-22 md:px-13">{title}</h1>
-    <div className="flex scroll-container overflow-x-scroll  relative">
-      
-      <div className="flex flex-wrap md:flex-nowrap px-8 ">
-        {movies.map((movie)=>
-        <Link to={"/movieinfo/" + movie?.id}>
-            <MovieCard key={movie?.id} poster_path={movie.poster_path} />
-            </Link>
-        )}
-        </div>
+    <div className="bg-black/60 backdrop-blur-sm rounded-4xl mt-[5vh] md:-mt-[5vh] lg:-mt-[2vh] xl:-mt-[10vh] m-0 sm:m-auto max-w-full py-3 md:py-3 relative z-20 -ml-4 sm:-ml-6 md:-ml-8">
+      <div className="space-y-3 max-w-full">
+        <MovieList title="Now Playing" movies={movies.nowPlayingMovies} />
+        <MovieList title="Popular Movies" movies={movies.popularMovies} />
+        <MovieList title="Top Rated Movies" movies={movies.topRatedMovies} />
+        <MovieList title="Upcoming" movies={movies.upcomingMovies} />
       </div>
     </div>
   );
 };
 
-export default MovieList;
+export default SecondaryContainer;
