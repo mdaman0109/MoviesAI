@@ -1,6 +1,7 @@
 import AppLogo from "./AppLogo";
 import { auth } from "../Utils/firebase";
 import {signOut } from "firebase/auth";
+import { changeLanguage } from "../Utils/configSlice";
 import { useNavigate } from "react-router";
 import LogoutError from "./LogoutError";
 import { useState } from "react";
@@ -11,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { addUser,removeUser } from "../Utils/userSlice";
 import { toggleAISearch } from "../Utils/AISearchSlice";
 import { SUPPORTED_LANGUAGES } from "../Utils/constants";
-import { changeLanguage } from "../Utils/configSlice";
+
 
 const Header = () => {
   const navigate = useNavigate()
@@ -79,7 +80,7 @@ return (
          
             {showaisearch && (
               <select 
-                className="hidden sm:block bg-white/30 backdrop-blur-sm hover:bg-black/30 hover:border-2 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-extrabold shadow-sm transition duration-200" 
+                className="bg-white/30 backdrop-blur-sm hover:bg-black/30 hover:border-2 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-1 sm:px-2 md:px-3 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-extrabold shadow-sm transition duration-200 min-w-[50px] sm:min-w-[60px] md:min-w-[80px]" 
                 onChange={handleLanguageChange}
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
@@ -93,12 +94,12 @@ return (
          
             <button
               onClick={handleAISearch}
-              className=" sm:scale-none bg-white/30 md:bg-purple-700 md:hover:bg-purple-800 md:hover:border-2 md:hover:scale-110 md:hover:border-white cursor-pointer text-white text-xs sm:text-sm px-3 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
+              className="bg-white/30 sm:bg-purple-700 md:hover:bg-purple-800 md:hover:border-2 md:hover:scale-110 md:hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
             >
               <span className="hidden sm:inline">
                 {!AISearchToggle ? "AISearch" : "Home"}
               </span>
-              <span className="sm:hidden text-xl top-0">
+              <span className="sm:hidden text-lg">
                 {!AISearchToggle ? "🤖" : "🏠"}
               </span>
             </button>
@@ -133,30 +134,14 @@ return (
            
             <button
               onClick={handleSignout}
-              className="bg-red-600 hover:bg-red-700 hover:border-2 hover:scale-110 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
+              className="bg-red-500 sm:bg-red-600 hover:bg-red-700 hover:border-2 hover:scale-110 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
             >
               <span className="hidden sm:inline">Sign Out</span>
-              <span className="sm:hidden">⏻</span>
+              <span className="sm:hidden"><img className="w-[25px]"src="/src/utils/signOut.svg" alt="Sign Out Logo" /></span>
             </button>
           </div>
         )}
       </div>
-
-
-      {showaisearch && user && (
-        <div className="sm:hidden px-2 pb-2">
-          <select 
-            className="w-full bg-white/30 backdrop-blur-sm hover:bg-black/30 hover:border-2 hover:border-white cursor-pointer text-white text-sm px-3 py-2 h-10 rounded-md font-extrabold shadow-sm transition duration-200" 
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <option className="text-black backdrop-blur-sm" key={lang.identifier} value={lang.identifier}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
     </div>
   </>
 );

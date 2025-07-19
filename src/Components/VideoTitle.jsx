@@ -7,13 +7,13 @@ const VideoTitle = ({ title, overview,movieId }) => {
 
   <div className="space-x-4">
   <Link to={"/movieinfo/" + movieId}>
-    <button className="cursor-pointer hover:border-2 border-white bg-white text-black sm:py-2 sm:px-6 px-2 py-2 rounded-3xl sm:rounded-md text-lg font-bold hover:bg-gray-300 transition">
-      <span className="sm:hidden">▷</span>
+    <button className="cursor-pointer hover:border-2 border-white bg-white/60 sm:bg-white text-black sm:py-2 sm:px-6 px-2 py-2 min-w-[50px] min-h-[50px] rounded-xl sm:rounded-md text-lg font-bold hover:bg-gray-300 transition">
+      <span className="sm:hidden ">▷</span>
       <span className="hidden sm:inline">▷ Play</span>
     </button>
   </Link>
   <Link to={"/movieinfo/" + movieId}>
-    <button className="cursor-pointer hover:border-2 border-white bg-gray-700 bg-opacity-70 text-white sm:py-2 sm:px-6 px-2 py-2 rounded-3xl sm:rounded-md text-lg font-bold hover:bg-gray-600 transition">
+    <button className="cursor-pointer hover:border-2 border-white  bg-gray-900/60 sm:bg-gray-700 sm:bg-opacity-70 text-white min-w-[50px] min-h-[50px] sm:py-2 sm:px-6 px-2 py-2 rounded-xl sm:rounded-md text-lg font-bold hover:bg-gray-600 transition">
       <span className="sm:hidden">ⓘ</span>
       <span className="hidden sm:inline">ⓘ More Info</span>
     </button>

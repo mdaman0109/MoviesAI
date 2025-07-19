@@ -65,11 +65,10 @@ const AISearchBar = () => {
     }
   };
 
-  // Shimmer card component
   const MovieCardShimmer = () => (
-    <div className="w-[150px] flex flex-col items-center  animate-pulse">
-      <div className="w-full h-[225px] bg-gray-800 rounded-2xl mb-2" />
-      <div className="w-3/4 h-4 bg-gray-700 rounded" />
+    <div className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[160px] flex flex-col items-center animate-pulse">
+      <div className="w-full h-[180px] sm:h-[200px] md:h-[225px] lg:h-[240px] bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl mb-2" />
+      <div className="w-3/4 h-3 sm:h-4 bg-gray-700 rounded" />
     </div>
   );
 
@@ -77,42 +76,41 @@ const AISearchBar = () => {
     <>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-xl p-6 w-[800px] mx-auto"
+        className="flex flex-col sm:flex-row items-center justify-center mt-[20px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg sm:rounded-xl shadow-xl p-3 sm:p-4 md:p-6 w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto gap-3 sm:gap-4"
       >
         <input
           ref={searchText}
           type="text"
           placeholder={lang[langKey].gptSearchPlaceholder}
-          className="w-[550px] p-4 bg-white/80 text-black text-lg rounded-lg placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-600 transition-all duration-200 mr-4"
+          className="w-full sm:flex-1 p-3 sm:p-4 bg-white/80 text-black text-sm sm:text-base md:text-lg rounded-lg placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-600 transition-all duration-200"
         />
 
         <button
           onClick={handleAISearchClick}
           type="submit"
-          className="bg-red-600 hover:bg-red-800 hover:border-2 hover:border-white font-bold cursor-pointer text-white px-6 py-4 rounded-lg shadow-md transition-all duration-300 active:scale-95"
+          className="bg-red-600 hover:bg-red-800 hover:border-2 hover:border-white font-bold cursor-pointer text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg shadow-md transition-all duration-300 active:scale-95 text-sm sm:text-base w-full sm:w-auto"
         >
           {lang[langKey].search}
         </button>
       </form>
 
-      {isLoading && movieResults=== null && (
-  <div className="mt-10 p-6 bg-black/60 backdrop-blur-sm rounded-4xl text-white shadow-xl w-full  relative overflow-hidden">
-    <h1 className="text-2xl font-bold mb-6">
-      🎬 Movies are loading... Grab some popcorn to enjoy the show! 🍿✨
-    </h1>
+      {isLoading && movieResults === null && (
+        <div className="mt-6 sm:mt-8 md:mt-10 p-3 sm:p-4 md:p-6 bg-black/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl md:rounded-4xl text-white shadow-xl w-full max-w-7xl mx-auto relative overflow-hidden">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 md:mb-6 text-center sm:text-left px-2">
+            🎬 Movies are loading... Grab some popcorn to enjoy the show! 🍿✨
+          </h1>
 
-    <div className="flex flex-wrap gap-6 justify-start">
-      {Array(20)
-        .fill(0)
-        .map((_, i) => (
-          <MovieCardShimmer key={i} />
-        ))}
-    </div>
+          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 justify-center sm:justify-start px-2 sm:px-0">
+            {Array(window.innerWidth < 640 ? 8 : window.innerWidth < 768 ? 12 : window.innerWidth < 1024 ? 16 : 20)
+              .fill(0)
+              .map((_, i) => (
+                <MovieCardShimmer key={i} />
+              ))}
+          </div>
 
-    <div className="h-16" />
-  </div>
-)}
-
+          <div className="h-8 sm:h-12 md:h-16" />
+        </div>
+      )}
     </>
   );
 };
