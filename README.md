@@ -1,6 +1,6 @@
 # 🎬 MoviesAI
 
-**MoviesAI** is a fully responsive smart movie recommendation web app that leverages the power of **OpenAI's GPT API** to suggest movies based on user prompts and preferences. Built with modern tools like **React.js**, **Redux Toolkit**, **Firebase**, **Tailwind CSS**, and **Vite**, it delivers a fast, intuitive, and intelligent movie discovery experience.
+**MoviesAI** is a fully responsive smart movie recommendation web app using TMDB API(works on non JIO ISP) that leverages the power of **OpenAI's GPT API** to suggest movies based on user prompts and preferences. Built with modern tools like **React.js**, **Redux Toolkit**, **Firebase**, **Tailwind CSS**, and **Vite**, it delivers a fast, intuitive, and intelligent movie discovery experience.
 
 ---
 
