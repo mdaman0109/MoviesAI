@@ -16,8 +16,22 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "english", name: "English" },
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
+  { identifier: "french", name: "French" },
+  { identifier: "german", name: "German" },
   { identifier: "bhojpuri", name: "Bhojpuri" },
+  {identifier:"kannada", name:"Kannada"},
   { identifier: "bengali", name: "Bengali" },
+  { identifier: "telugu", name: "Telugu" },
+  { identifier: "tamil", name: "Tamil" },
+  { identifier: "urdu", name: "Urdu" },
+  { identifier: "marathi", name: "Marathi" },
+  
+  
+
+  
+
+
+
 
 ];
 

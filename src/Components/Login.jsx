@@ -104,7 +104,7 @@ return (
                      focus:ring-2 focus:ring-red-500 focus:border-red-500
                      text-base transition-all duration-300"
           type="text"
-          placeholder="Email or mobile number"
+          placeholder="Enter your Email Id"
         />
 
         
