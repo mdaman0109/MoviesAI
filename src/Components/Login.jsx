@@ -6,6 +6,7 @@ import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import { USERLOGO, BGPHOTO } from "../Utils/constants";
+import Footer from "./MovieInfoComponents/Footer";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -76,7 +77,7 @@ return (
     <div className="absolute inset-0 z-10 flex items-center justify-center p-4">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-full max-w-md bg-black/80 rounded-lg p-6 backdrop-blur-md border border-white/20 shadow-2xl"
+        className="w-full max-w-md bg-black/80 rounded-lg p-6 -mt-25 sm:-mt-20 backdrop-blur-md border border-white/20 shadow-2xl"
       >
        
         <h1 className="text-white font-bold text-3xl mb-6 text-center">
@@ -148,7 +149,9 @@ return (
             : "Already have an account? Sign In!"}
         </h3>
       </form>
+      
     </div>
+    <Footer/>
   </div>
 );
 };
