@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 const VideoTitle = ({ title, overview,movieId }) => {
   return (
-    <div className="absolute inset-0 z-10 px-6 sm:px-16  md:px-24 sm:pt-[13vh] pt-[8vh] md:pt-[12vh] lg:pt-[10vh] xl:pt-[25vh] text-white bg-gradient-to-r from-black-100">
+    <div className="absolute inset-0 z-10 px-6 sm:px-16  md:px-24 sm:pt-[13vh] pt-[8vh]  md:pt-[12vh] lg:pt-[10vh] xl:pt-[25vh] text-white bg-gradient-to-r from-black-100">
   <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">{title}</h1>
   <p className="text-xs  sm:text-sm md:text-md lg:text-lg font-medium w-full sm:w-3/4 md:1/2 lg:w-1/3 sm:mb-6 mb-3 text-gray-200">{overview}</p>
 
