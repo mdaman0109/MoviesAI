@@ -93,12 +93,12 @@ return (
          
             <button
               onClick={handleAISearch}
-              className="scale-230 sm:scale-none md:bg-purple-700 md:hover:bg-purple-800 md:hover:border-2 md:hover:scale-110 md:hover:border-white cursor-pointer text-white text-xs sm:text-sm px-3 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
+              className=" sm:scale-none bg-white/30 md:bg-purple-700 md:hover:bg-purple-800 md:hover:border-2 md:hover:scale-110 md:hover:border-white cursor-pointer text-white text-xs sm:text-sm px-3 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
             >
               <span className="hidden sm:inline">
                 {!AISearchToggle ? "AISearch" : "Home"}
               </span>
-              <span className="sm:hidden">
+              <span className="sm:hidden text-xl top-0">
                 {!AISearchToggle ? "🤖" : "🏠"}
               </span>
             </button>
@@ -136,7 +136,7 @@ return (
               className="bg-red-600 hover:bg-red-700 hover:border-2 hover:scale-110 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
             >
               <span className="hidden sm:inline">Sign Out</span>
-              <span className="sm:hidden">Exit</span>
+              <span className="sm:hidden">⏻</span>
             </button>
           </div>
         )}
