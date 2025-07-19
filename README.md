@@ -52,7 +52,7 @@ This project is inspired by the idea of combining **AI + movies**, and built to 
 ## 🧑‍💻 Getting Started
 
 ```bash
-git clone https://github.com/yourusername/MoviesAI.git
+git clone https://github.com/mdaman0109/MoviesAI.git
 cd MoviesAI
 npm install
 npm run dev
