@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { addUser,removeUser } from "../Utils/userSlice";
 import { toggleAISearch } from "../Utils/AISearchSlice";
 import { SUPPORTED_LANGUAGES } from "../Utils/constants";
+import signOutIcon from "../Utils/signOut.svg"
 
 
 const Header = () => {
@@ -106,12 +107,11 @@ return (
 
        
             <img
-              onClick={showuserdetails}
-              className="w-8 sm:m-0 m-2 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-md cursor-pointer object-cover hover:scale-110 transition-transform duration-200"
-              src={user?.photoURL}
-              
-              alt="userIcon"
-            />
+  onClick={showuserdetails}
+  className="w-8 sm:m-0 m-2 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-md cursor-pointer object-cover hover:scale-110 transition-transform duration-200"
+  src={user?.photoURL || "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp"} 
+  alt="userIcon"
+/>
 
         
             {isuserclicked && (
@@ -134,10 +134,10 @@ return (
            
             <button
               onClick={handleSignout}
-              className="bg-red-500 sm:bg-red-600 hover:bg-red-700 hover:border-2 hover:scale-110 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
+              className="bg-red-600 sm:bg-red-600 hover:bg-red-700 hover:border-2 hover:scale-110 hover:border-white cursor-pointer text-white text-xs sm:text-sm px-2 sm:px-3 md:px-4 py-1 sm:py-2 h-8 sm:h-9 md:h-10 rounded-md font-bold shadow-sm transition duration-200"
             >
               <span className="hidden sm:inline">Sign Out</span>
-              <span className="sm:hidden"><img className="w-[25px]"src="/src/utils/signOut.svg" alt="Sign Out Logo" /></span>
+              <span className="sm:hidden"><img className="w-[25px]"src={signOutIcon} alt="Sign Out Logo" /></span>
             </button>
           </div>
         )}
