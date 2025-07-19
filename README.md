@@ -13,7 +13,10 @@
 - 🧠 **OpenAI GPT API** – For intelligent movie suggestions via ChatGPT  
 
 ---
-## 🤖 Live Now : moviesaiapp.web.app
+## 🤖 Live Demo
+
+🔗 **Try it here:** [moviesaiapp.web.app](https://moviesaiapp.web.app)
+
 ## ✨ Features
 
 ### 🔐 Authentication  
