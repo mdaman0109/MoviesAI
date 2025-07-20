@@ -14,36 +14,38 @@ const AIMovieSuggestion = () => {
           🎬 Movies based on your search. Sit back, relax, and enjoy the show! 🍿✨
         </h1>
 
-        {movieNames.map((movieName, index) => (
-          <div key={movieName} className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white text-shadow-red-900 text-shadow-sm font-semibold mb-3 sm:mb-4 md:mb-5 text-center sm:text-left px-2 sm:px-0 break-words">
-              {movieName}
-            </h2>
+       {movieNames.map((movieName, index) => 
+  movieResults[index].length != 0 && (
+    <div key={movieName} className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white text-shadow-red-900 text-shadow-sm font-semibold mb-3 sm:mb-4 md:mb-5 text-center sm:text-left px-2 sm:px-0 break-words">
+        {movieName}
+      </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6 justify-items-center px-2 sm:px-0">
-              {movieResults[index]
-                ?.filter((movie) => movie.poster_path)
-                .map((movie) => (
-                  <div
-                    key={movie.id}
-                    className="w-full max-w-[140px] sm:max-w-[150px] md:max-w-[160px] lg:max-w-[170px] flex flex-col items-center group cursor-pointer"
-                  >
-                    <Link to={"/movieinfo/" + movie.id} className="w-full">
-                      <img
-                        className="w-full h-[180px] sm:h-[200px] md:h-[220px] lg:h-[240px] xl:h-[255px] object-cover mb-2 rounded-lg sm:rounded-xl md:rounded-2xl group-hover:scale-105 transition-transform duration-300 group-hover:border-2 group-hover:border-red-500 shadow-lg"
-                        src={IMG_CDN_URL + movie.poster_path}
-                        alt={movie.title}
-                        loading="lazy"
-                      />
-                      <p className="text-center text-xs sm:text-sm md:text-base font-medium line-clamp-2 px-1 leading-tight group-hover:text-red-400 transition-colors duration-200">
-                        {movie.title}
-                      </p>
-                    </Link>
-                  </div>
-                ))}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6 justify-items-center px-2 sm:px-0">
+        {movieResults[index]
+          ?.filter((movie) => movie.poster_path)
+          .map((movie) => (
+            <div
+              key={movie.id}
+              className="w-full max-w-[140px] sm:max-w-[150px] md:max-w-[160px] lg:max-w-[170px] flex flex-col items-center group cursor-pointer"
+            >
+              <Link to={"/movieinfo/" + movie.id} className="w-full">
+                <img
+                  className="w-full h-[180px] sm:h-[200px] md:h-[220px] lg:h-[240px] xl:h-[255px] object-cover mb-2 rounded-lg sm:rounded-xl md:rounded-2xl group-hover:scale-105 transition-transform duration-300 group-hover:border-2 group-hover:border-red-500 shadow-lg"
+                  src={IMG_CDN_URL + movie.poster_path}
+                  alt={movie.title}
+                  loading="lazy"
+                />
+                <p className="text-center text-xs sm:text-sm md:text-base font-medium line-clamp-2 px-1 leading-tight group-hover:text-red-400 transition-colors duration-200">
+                  {movie.title}
+                </p>
+              </Link>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
+    </div>
+  )
+)}
 
         <div className="h-8 sm:h-12 md:h-16 lg:h-20" />
       </div>

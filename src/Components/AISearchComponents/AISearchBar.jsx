@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import openai from "../../Utils/openAI";
 import { API_OPTIONS } from "../../Utils/constants";
 import { addGptMovieResult } from "../../Utils/AISearchSlice";
+import { useCallback } from "react";
 
 const AISearchBar = () => {
   const dispatch = useDispatch();
@@ -32,17 +33,21 @@ const AISearchBar = () => {
     }
   };
 
-  const handleAISearchClick = async () => {
+  const debouncedHandleAISearchClick = useCallback(
+  debounce(async () => {
     const query = searchText.current.value;
+   
+    
     if (!query) return;
 
-    setIsLoading(true); 
+    setIsLoading(true);
 
     const gptQuery =
-      "Act as a Movie Recommendation system and suggest some movies for the query : " +
+      "Act as a Movie Recommendation system and suggest some movies for the query and if query is directly a movie name put the same name in the first list of 10 movies list and it's sequels if any : " +
       query +
-      ". only give me names of 10 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
-
+      ". only give me names of 10 movies, comma seperated like the example result given ahead. Example Result: Gadar,Sholay,Don,Golmaal,Koi Mil Gaya";
+    console.log(gptQuery);
+    
     try {
       const gptResults = await openai.chat.completions.create({
         messages: [{ role: "user", content: gptQuery }],
@@ -50,20 +55,36 @@ const AISearchBar = () => {
       });
 
       const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
-      const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
+      const cleanedGptMovies = gptMovies.map((title) => title.trim());
+      const promiseArray = cleanedGptMovies.map((movie) => searchMovieTMDB(movie));
       const tmdbResults = await Promise.all(promiseArray);
-  
-      
+      const filtereddata = tmdbResults.map((nestedArray) =>
+        nestedArray.filter((movie) => cleanedGptMovies.includes(movie.title))
+      );
 
       dispatch(
-        addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+        addGptMovieResult({ movieNames: gptMovies, movieResults: filtereddata })
       );
     } catch (err) {
       console.error("🔥 GPT or TMDB error:", err.message);
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
+  }, 500),
+  [searchText, setIsLoading, dispatch]
+);
+
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
   };
+}
+
+const handleAISearchClick = () => {
+  debouncedHandleAISearchClick();
+};
 
   const MovieCardShimmer = () => (
     <div className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[160px] flex flex-col items-center animate-pulse">
@@ -80,6 +101,7 @@ const AISearchBar = () => {
       >
         <input
           ref={searchText}
+          onChange={handleAISearchClick}
           type="text"
           placeholder={lang[langKey].gptSearchPlaceholder}
           className="w-full sm:flex-1 p-3 sm:p-4 bg-white/80 text-black text-sm sm:text-base md:text-lg rounded-lg placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-600 transition-all duration-200"
