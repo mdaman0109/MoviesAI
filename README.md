@@ -31,7 +31,7 @@
 - Stunning trailer background video  
 - Overlay with movie title & description  
 - Search bar powered by GPT for dynamic prompts  
-- Dynamic list of AI-suggested movies  
+- Dynamic list of AI-suggested movies with debouncing set for 500ms
 
 ### 👥 Cast Details & Filmography  
 - View cast name, profile image, and "known-for" movies  
