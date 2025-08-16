@@ -15,7 +15,7 @@
 ---
 ## 🤖 Live Demo
 
-🔗 **Try it here:** [moviesaiapp.web.app](https://moviesaiapp.web.app)
+🔗 **Try it here:** [MoviesAI](https://moviesaiapp.web.app)
 
 ## ✨ Features
 
